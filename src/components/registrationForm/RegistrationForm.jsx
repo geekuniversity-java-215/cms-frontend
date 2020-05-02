@@ -1,6 +1,6 @@
 import React from "react";
 import s from './RegistrationForm.module.css'
-import {Field, reduxForm, formValueSelector } from "redux-form";
+import {Field, reduxForm, formValueSelector} from "redux-form";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {Input} from "../common/FormsControl/FormsControl";
 import {connect} from "react-redux";
@@ -12,20 +12,19 @@ const maxLength = maxLengthCreator(10);
 const RegistrationForm = (props) => {
     return (
         <div className={s.form}>
-            <h1>Registration</h1>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <Field placeholder={"FirstName"} name={"FirstName"} component={Input}
+                    <Field placeholder={"Иван"} name={"FirstName"} component={Input}
                            validate={[required, maxLength]}/>
                 </div>
                 <div>
-                    <Field placeholder={"LastName"} name={"LastName"} component={Input} validate={[required]}/>
+                    <Field placeholder={"Иванов"} name={"LastName"} component={Input} validate={[required]}/>
                 </div>
                 <div>
-                    <Field placeholder={"Email"} name={"Email"} component={Input} validate={[required]}/>
+                    <Field placeholder={"ivan.ivanov@mail.ru"} name={"Email"} component={Input} validate={[required]}/>
                 </div>
                 <div>
-                    <Field placeholder={"Phone"} name={"Phone"} component={Input} validate={[required]}/>
+                    <Field placeholder={"+7999999999"} name={"Phone"} component={Input} validate={[required]}/>
                 </div>
                 <div>
                     <Field name="Role" component="select" validate={[required]}>
@@ -50,7 +49,7 @@ const Registration = (props) => {
     };
 
     if (props.isAuth) {
-        return <Redirect to={"/main"} />
+        return <Redirect to={"/main"}/>
     }
 
     return <div>

@@ -1,0 +1,28 @@
+.header {
+    grid-area: h;
+    background-color: gray;
+}
+
+.header img {
+    width: 20px;
+}
+
+.courier{
+    background-color: #805d1c;
+}
+
+.customer{
+    background-color: #00801f;
+}
+
+
+
+
+.loginBlock {
+    float: right;
+
+}
+.loginBlock a {
+    color: white;
+}
+

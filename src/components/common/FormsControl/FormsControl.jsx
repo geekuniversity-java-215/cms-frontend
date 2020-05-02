@@ -7,8 +7,8 @@ const FormControl = ({input, meta, child, ...props}) => {
         <div className={s.formControl + " " + (hasError ? s.error : " ")}>
             <div>
                 {props.children}
+                {hasError && <span>{meta.error}</span>}
             </div>
-            {hasError && <span>{meta.error}</span>}
         </div>)
 };
 
