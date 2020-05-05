@@ -1,9 +1,10 @@
 import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+import {login} from "../../redux/auth-reducer";
 
 const Navbar = (props) => {
-    debugger
     if (!props.isAuth) {
         return <nav className={s.nav}/>
     } else {
@@ -20,4 +21,9 @@ const Navbar = (props) => {
     }
 };
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    role: state.auth.role,
+    isAuth: state.auth.isAuth
+});
+
+export default connect(mapStateToProps, null)(Navbar);

@@ -1,0 +1,12 @@
+.form{
+}
+
+.addresses {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.comments {
+    width: 100%;
+}
