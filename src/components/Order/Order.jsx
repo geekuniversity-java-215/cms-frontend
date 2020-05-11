@@ -11,7 +11,6 @@ import {order} from "../../redux/order-reducer";
 
 const maxLength = maxLengthCreator(10);
 const OrderForm = (props) => {
-    debugger
     return (
         <div>
             <div className={s.form}>
@@ -66,7 +65,7 @@ const OrderForm = (props) => {
 
 
 const OrderReduxForm = reduxForm({
-    form: 'order'
+    form: 'order',  enableReinitialize: true
 })(OrderForm);
 
 const Order = (props) => {
@@ -89,15 +88,16 @@ const Order = (props) => {
             BlockB: formData.BlockB, FlatB: formData.FlatB, FloorB: formData.FloorB, IntercomB: formData.IntercomB,
             Phone: formData.Phone, Comments: formData.Comments
         };
-        props.order(
-            params).then(setToConfirm(true));
+        new Promise(resolve=>{localStorage.setItem('params', JSON.stringify(params))})
+            .then(props.order(params))
+            .then(setToConfirm(true));
 
     };
 
     if (toConfirm) return <Redirect to={"/confirm"}/>;
 
     return <div>
-        <OrderReduxForm onSubmit={onSubmit} params = {props.params}/>
+        <OrderReduxForm onSubmit={onSubmit} initialValues={props.initialValues}/>
     </div>
 }
 
@@ -105,7 +105,7 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     allCosts: state.order,
     baseCost: state.order.baseCost,
-    params: state.order.params
+    initialValues: state.order.params
 });
 
 export default connect(mapStateToProps, {order})(Order);

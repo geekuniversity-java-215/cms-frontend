@@ -13,6 +13,7 @@ import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import Order from "./components/Order/Order";
 import Price from "./components/Order/Price";
+import OrdersPageContainer from "./components/Order/OrdersPageContainer";
 
 class App extends React.Component {
     componentDidMount() {
@@ -36,8 +37,10 @@ class App extends React.Component {
                            render={() => <Registration/>}/>
                     <Route path='/login'
                            render={() => <Login/>}/>
-                    <Route path='/order'
+                    <Route path='/order/new'
                            render={() => <Order/>}/>
+                    <Route path='/order/all'
+                           render={() => <OrdersPageContainer/>}/>
                     <Route path='/confirm'
                            render={() => <Price/>}/>
                 </div>

@@ -10,7 +10,9 @@ const Navbar = (props) => {
     } else {
         if (props.role === 'Client') {
             return <nav className={s.nav}>
-                <NavLink to="/order" activeClassName={s.activeLink}>Разместить заказ</NavLink>
+                <NavLink to="/order/new" activeClassName={s.activeLink}>Разместить заказ</NavLink>
+                <div/>
+                <NavLink to="/order/all" activeClassName={s.activeLink}>Текущие заказы</NavLink>
             </nav>
 
         } else if (props.role === 'Courier') {
