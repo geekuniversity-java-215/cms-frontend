@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {login} from "../../redux/auth-reducer";
 
 const Navbar = (props) => {
     if (!props.isAuth) {
@@ -17,7 +16,9 @@ const Navbar = (props) => {
 
         } else if (props.role === 'Courier') {
             return <nav className={s.nav}>
-            <NavLink to="/order" activeClassName={s.activeLink}>Посмотреть заказы</NavLink>
+                <NavLink to="/order/all" activeClassName={s.activeLink}>Доступные заказы</NavLink>
+                <NavLink to="/order/active" activeClassName={s.activeLink}>Заказы в работе</NavLink>
+                <NavLink to="/order/done" activeClassName={s.activeLink}>Выполненные заказы</NavLink>
             </nav>
         }
     }

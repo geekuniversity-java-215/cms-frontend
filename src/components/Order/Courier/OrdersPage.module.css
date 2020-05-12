@@ -1,9 +1,8 @@
-
 .orders {
     display: flex;
     flex-direction: row;
     align-content: center;
-
+    flex-wrap: wrap;
 }
 
 .order_preview {
@@ -13,7 +12,7 @@
     margin: 10px;
     box-sizing: border-box;
     color: wheat;
-    width: 320px;
+    width: 313px;
     height: 280px;
     display: flex;
     flex-direction: column;
@@ -64,4 +63,17 @@
 
 .header {
     text-align: center;
+}
+
+.currStatusImg{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 48px;
+    height: 45px;
+
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

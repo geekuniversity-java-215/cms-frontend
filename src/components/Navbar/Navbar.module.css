@@ -2,6 +2,8 @@
     grid-area: n;
     background-color: #0d293e;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .item a {

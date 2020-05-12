@@ -11,9 +11,9 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import Order from "./components/Order/Order";
-import Price from "./components/Order/Price";
-import OrdersPageContainer from "./components/Order/OrdersPageContainer";
+import Order from "./components/Order/Client/Order";
+import Price from "./components/Order/Client/Price";
+import OrdersPageContainer from "./components/Order/Common/OrdersPageContainer";
 
 class App extends React.Component {
     componentDidMount() {
@@ -40,7 +40,11 @@ class App extends React.Component {
                     <Route path='/order/new'
                            render={() => <Order/>}/>
                     <Route path='/order/all'
-                           render={() => <OrdersPageContainer/>}/>
+                           render={() => <OrdersPageContainer path='/order/all'/>}/>
+                    <Route path='/order/active'
+                           render={() => <OrdersPageContainer path='/order/active'/>}/>
+                    <Route path='/order/done'
+                           render={() =><OrdersPageContainer path='/order/done'/>}/>
                     <Route path='/confirm'
                            render={() => <Price/>}/>
                 </div>

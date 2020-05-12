@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import s from './OrderForm.module.css'
 import {Field, reduxForm, formValueSelector} from "redux-form";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
-import {Input, Textarea} from "../common/FormsControl/FormsControl";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Input, Textarea} from "../../common/FormsControl/FormsControl";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import {order} from "../../redux/order-reducer";
+import {order} from "../../../redux/order-reducer";
 
 
 const maxLength = maxLengthCreator(10);

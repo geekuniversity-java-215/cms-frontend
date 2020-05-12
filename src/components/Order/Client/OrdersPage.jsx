@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import OrderPreview from "./OrderPreview";
 import s from "./OrdersPage.module.css"
-import delivery from "../../assets/images/delivery.png"
-import empty from "../../assets/images/empty.png"
-import noname from "../../assets/images/noname.png"
+import delivery from "../../../assets/images/delivery.png"
+import empty from "../../../assets/images/empty.png"
+import noname from "../../../assets/images/noname.png"
 import {Button, Modal, Table} from "react-bootstrap";
+import {connect} from "react-redux";
+import {compose} from "redux";
 
 const OrdersPage = (props) => {
     let state = props.ordersPage;
@@ -33,5 +35,7 @@ const OrdersPage = (props) => {
     </div>
 };
 
-
-export default OrdersPage;
+let mapStateToProps = (state) => ({
+    ordersPage: state.orders
+});
+export default connect(mapStateToProps, null)(OrdersPage);

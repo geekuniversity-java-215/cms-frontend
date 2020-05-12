@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Card} from "react-bootstrap";
-import arrow from "../../assets/images/arrow.png"
+import arrow from "../../../assets/images/arrow.png"
 
 import s from "./OrdersPage.module.css"
-import OrderDetail from "./OrderDetail";
+import OrderDetail from "../Common/OrderDetail";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 

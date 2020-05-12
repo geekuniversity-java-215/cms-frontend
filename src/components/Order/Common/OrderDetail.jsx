@@ -1,6 +1,6 @@
 import React from "react";
 import {Button, Modal, Table} from "react-bootstrap";
-import s from "./OrdersPage.module.css";
+import s from "../Client/OrdersPage.module.css";
 
 
 const OrderDetail = (props) => {
@@ -42,14 +42,10 @@ const OrderDetail = (props) => {
                         <td>Дом</td>
                         <td>{props.BuildingB}</td>
                     </tr>
-                    <tr>
+                    {(props.Role !== 'Courier') && <tr>
                         <td>Курьер</td>
                         <td>{props.Courier}</td>
-                    </tr>
-                    <tr>
-                        <td>Статус</td>
-                        <td>{props.Status}</td>
-                    </tr>
+                    </tr>}
                     <tr>
                         <td>Стоимость, руб</td>
                         <td>{props.Cost}</td>
@@ -70,6 +66,11 @@ const OrderDetail = (props) => {
                 <Button variant="secondary" onClick={props.onHide}>
                     Close
                 </Button>
+                {(props.Role === 'Courier') && <Button variant="primary" onClick={props.onHide} clas>
+                    Взять заказ
+                </Button>}
+
+
             </Modal.Footer>
         </Modal>
     </div>

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import {confirmOrder} from "../../redux/order-reducer";
-import {Input} from "../common/FormsControl/FormsControl";
+import {confirmOrder} from "../../../redux/order-reducer";
+import {Input} from "../../common/FormsControl/FormsControl";
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 
