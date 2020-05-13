@@ -19,31 +19,31 @@ const OrderPreview = (props) => {
     return <div>
         <div>
             <Card className={s.order_preview} onClick={showModal}>
-                <Card.Img variant="top" src={props.image} className={s.image}/>
+                <Card.Img variant="top" src={props.commonProps.image} className={s.image}/>
                 <Card.Body>
-                    <Card.Title className={s.title}>{props.Status}</Card.Title>
+                    <Card.Title className={s.title}>{props.commonProps.Status}</Card.Title>
                 </Card.Body>
                 <div className={s.addresses}>
                     <div className={s.address}>
-                        <div>г. {props.CityA}</div>
-                        <div>ул. {props.StreetA}</div>
-                        <div>д. {props.BuildingA}</div>
+                        <div>г. {props.commonProps.CityA}</div>
+                        <div>ул. {props.commonProps.StreetA}</div>
+                        <div>д. {props.commonProps.BuildingA}</div>
                     </div>
 
                     <img src={arrow} className={s.arrow}/>
                     <div className={s.address}>
-                        <div>г. {props.CityB}</div>
-                        <div>ул. {props.StreetB}</div>
-                        <div>д. {props.BuildingB}</div>
+                        <div>г. {props.commonProps.CityB}</div>
+                        <div>ул. {props.commonProps.StreetB}</div>
+                        <div>д. {props.commonProps.BuildingB}</div>
                     </div>
                 </div>
                 <div className={s.footer}>
                     <div>
-                    <div>Расстояние: {props.Distance} км</div>
-                    <div>Стоимость: {props.Cost}</div>
+                    <div>Расстояние: {props.commonProps.Distance} км</div>
+                    <div>Стоимость: {props.commonProps.Cost}</div>
                     </div>
                     <div>
-                       <img src={props.CurrStatusImg} className={ props.CurrStatusImg&&s.currStatusImg}/>
+                       <img src={props.commonProps.CurrStatusImg} className={ props.commonProps.CurrStatusImg&&s.currStatusImg}/>
                     </div>
                 </div>
             </Card>

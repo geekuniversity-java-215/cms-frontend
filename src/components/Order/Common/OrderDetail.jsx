@@ -5,7 +5,7 @@ import s from "../Client/OrdersPage.module.css";
 
 const OrderDetail = (props) => {
     return <div>
-        <Modal show={props.show} onHide={props.onHide} centered>
+        <Modal show={props.commonProps.show} onHide={props.commonProps.onHide} centered>
             <Modal.Header closeButton className={s.modal}>
                 <Modal.Title>Полные сведения о заказе</Modal.Title>
             </Modal.Header>
@@ -14,59 +14,59 @@ const OrderDetail = (props) => {
                     <tbody>
                     <tr>
                         <td width="200">Габариты ДхШхВ, см</td>
-                        <td>{props.Length} x {props.Width} x {props.Height}</td>
+                        <td>{props.commonProps.Length} x {props.commonProps.Width} x {props.commonProps.Height}</td>
                     </tr>
                     <td colSpan={2} className={s.header}>Точка отправления</td>
                     <tr>
                         <td>Город</td>
-                        <td>{props.CityA}</td>
+                        <td>{props.commonProps.CityA}</td>
                     </tr>
                     <tr>
                         <td>Улица</td>
-                        <td>{props.StreetA}</td>
+                        <td>{props.commonProps.StreetA}</td>
                     </tr>
                     <tr>
                         <td>Дом</td>
-                        <td>{props.BuildingA}</td>
+                        <td>{props.commonProps.BuildingA}</td>
                     </tr>
                     <td colSpan={2} className={s.header}>Точка доставки</td>
                     <tr>
                         <td>Город</td>
-                        <td>{props.CityB}</td>
+                        <td>{props.commonProps.CityB}</td>
                     </tr>
                     <tr>
                         <td>Улица</td>
-                        <td>{props.StreetB}</td>
+                        <td>{props.commonProps.StreetB}</td>
                     </tr>
                     <tr>
                         <td>Дом</td>
-                        <td>{props.BuildingB}</td>
+                        <td>{props.commonProps.BuildingB}</td>
                     </tr>
-                    {(props.Role !== 'Courier') && <tr>
+                    {(props.commonProps.Role !== 'Courier') && <tr>
                         <td>Курьер</td>
-                        <td>{props.Courier}</td>
+                        <td>{props.commonProps.Courier}</td>
                     </tr>}
                     <tr>
                         <td>Стоимость, руб</td>
-                        <td>{props.Cost}</td>
+                        <td>{props.commonProps.Cost}</td>
                     </tr>
                     <tr>
                         <td>Телефон</td>
-                        <td>{props.Phone}</td>
+                        <td>{props.commonProps.Phone}</td>
                     </tr>
                     <tr>
                         <td>Дополнительные комментарии</td>
-                        <td>{props.Comments}</td>
+                        <td>{props.commonProps.Comments}</td>
                     </tr>
                     </tbody>
                 </Table>
 
             </Modal.Body>
             <Modal.Footer className={s.modal}>
-                <Button variant="secondary" onClick={props.onHide}>
+                <Button variant="secondary" onClick={props.commonProps.onHide}>
                     Close
                 </Button>
-                {(props.Role === 'Courier') && <Button variant="primary" onClick={props.onHide} clas>
+                {(props.commonProps.Role === 'Courier') && <Button variant="primary" onClick={props.commonProps.onHide} clas>
                     Взять заказ
                 </Button>}
 
