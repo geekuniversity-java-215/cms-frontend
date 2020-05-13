@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import {Card} from "react-bootstrap";
 import arrow from "../../../assets/images/arrow.png"
 
-import s from "./OrdersPage.module.css"
-import OrderDetail from "../Common/OrderDetail";
+import s from "../Courier/OrdersPage.module.css"
+import OrderDetail from "./OrderDetail";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 
@@ -15,7 +15,6 @@ const OrderPreview = (props) => {
     if (!props.isAuth) {
         return <Redirect to={"/login"}/>
     }
-
     return <div>
         <div>
             <Card className={s.order_preview} onClick={showModal}>
@@ -39,7 +38,8 @@ const OrderPreview = (props) => {
                 </div>
                 <div className={s.footer}>
                     <div>
-                    <div>Расстояние: {props.commonProps.Distance} км</div>
+                    {(props.role==='Courier')&&<div>Расстояние: {props.commonProps.Distance} км</div>
+                    || (props.role==='Client')&&<div>Исполнитель: {props.Courier}</div>}
                     <div>Стоимость: {props.commonProps.Cost}</div>
                     </div>
                     <div>

@@ -5,7 +5,7 @@ import s from "../Client/OrdersPage.module.css";
 
 const OrderDetail = (props) => {
     return <div>
-        <Modal show={props.commonProps.show} onHide={props.commonProps.onHide} centered>
+        <Modal show={props.show} onHide={props.onHide} centered>
             <Modal.Header closeButton className={s.modal}>
                 <Modal.Title>Полные сведения о заказе</Modal.Title>
             </Modal.Header>
@@ -63,7 +63,7 @@ const OrderDetail = (props) => {
 
             </Modal.Body>
             <Modal.Footer className={s.modal}>
-                <Button variant="secondary" onClick={props.commonProps.onHide}>
+                <Button variant="secondary" onClick={props.onHide}>
                     Close
                 </Button>
                 {(props.commonProps.Role === 'Courier') && <Button variant="primary" onClick={props.commonProps.onHide} clas>
