@@ -67,7 +67,8 @@ const OrdersPage = (props) => {
                         Distance: o.Distance,
                         key: o.id,
                         image: image(o.Status),
-                        Role: props.role
+                        Role: props.role,
+                        Courier: o.Courier
                     };
                     if (props.path === '/order/all') {
                         return <OrderPreview commonProps={commonProps} {...props}/>

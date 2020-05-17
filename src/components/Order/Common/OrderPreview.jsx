@@ -39,7 +39,7 @@ const OrderPreview = (props) => {
                 <div className={s.footer}>
                     <div>
                     {(props.role==='Courier')&&<div>Расстояние: {props.commonProps.Distance} км</div>
-                    || (props.role==='Client')&&<div>Исполнитель: {props.Courier}</div>}
+                    || (props.role==='Client')&&<div>Исполнитель: {props.commonProps.Courier}</div>}
                     <div>Стоимость: {props.commonProps.Cost}</div>
                     </div>
                     <div>

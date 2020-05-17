@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import {Route} from "react-router-dom";
-import Registration from "./components/registrationForm/RegistrationForm";
+import Registration from "./components/Registration/Registration";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import 'bootstrap/dist/css/bootstrap.min.css';

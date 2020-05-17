@@ -10,8 +10,6 @@ import Button from "react-bootstrap/Button";
 const LoginForm = (props) => {
     return (
         <div>
-
-
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder ={"Login"} name = {"login"} validate = {[required]} component = {Input}/>

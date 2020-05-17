@@ -12,7 +12,7 @@ let reducers = combineReducers({
     form: formReducer,
     app: appReducer,
     order: orderReducer,
-    orders: ordersReducer
+    orders: ordersReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunk));
