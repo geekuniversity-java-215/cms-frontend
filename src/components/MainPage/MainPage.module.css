@@ -1,26 +1,30 @@
-.header {
-    grid-area: f;
-    background-color: gray;
+.image {
+    width: 800px;
+    height: 600px;
+    transition: 2s;
 }
 
-.header img {
-    width: 20px;
+.imageNotAuth {
+    width: 800px;
+    height: 600px;
+    margin-left: 100px;
+    transition: 2s;
 }
 
-.courier{
-    background-color: #805d1c;
+
+.auth {
+    padding-right: 200px;
+    transition: 1s;
 }
 
-.customer{
-    background-color: #00801f;
+.notAuth {
+    transition: 1s;
 }
 
-.image{
-    width: 60%;
-    align-content: center;
+.text {
+    color: black;
 }
 
-.carousel {
-    display: flex;
-    flex-direction: column;
+.logOut{
+
 }

@@ -4,6 +4,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    transition: 1s;
 }
 
 .item a {
@@ -23,5 +24,6 @@
 
 .emptyUser{
     grid-area: n;
-    background-color: #5b5e60;
+    background-color: transparent;
+    transition: 1s;
 }

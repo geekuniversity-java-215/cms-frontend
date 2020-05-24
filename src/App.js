@@ -14,9 +14,9 @@ import Preloader from "./components/common/Preloader/Preloader";
 import Order from "./components/Order/Client/Order";
 import Price from "./components/Order/Client/Price";
 import OrdersPageContainer from "./components/Order/Common/OrdersPageContainer";
-import MainPage from "./components/MainPage/MainPage";
 import FooterContainer from "./components/Footer/FooterContainer";
 import background from "./assets/images/background.jpg";
+import MainPageContainer from "./components/MainPage/MainPageContainer";
 
 class App extends React.Component {
 
@@ -40,7 +40,7 @@ class App extends React.Component {
                 <div className={'app-wrapper-content'}>
                     <Route path='/main'
                            render={() =>
-                             <MainPage/>}/>
+                             <MainPageContainer/>}/>
                     <Route path='/registration'
                            render={() => <Registration/>}/>
                     <Route path='/login'

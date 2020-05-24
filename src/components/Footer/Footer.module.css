@@ -1,16 +1,16 @@
 .footer {
     grid-area: f;
-    background-color: gray;
-}
-
-.footer img {
-    width: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: 1s;
+    text-align: center;
 }
 
 .courier{
     background-color: rgba(0, 0, 0, 0.3);
+    transition: 1s;
 }
 
 .customer{
     background-color: rgba(0, 0, 0, 0.3);
+    transition: 1s;
 }

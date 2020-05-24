@@ -1,28 +1,34 @@
 .header {
     grid-area: h;
-    background-color: gray;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: 1s;
 }
 
 .header img {
-    width: 20px;
+    width: 200px;
+    height: 60px;
 }
 
 .courier{
     background-color: rgba(0, 0, 0, 0.3);
+    transition: 1s;
 }
 
 .customer{
     background-color: rgba(0, 0, 0, 0.3);
+    transition: 1s;
 }
 
-
-
-
 .loginBlock {
+    margin-top: 11px;
     float: right;
-
+    font-size: 20px;
+    font-weight: bold;
 }
 .loginBlock a {
     color: white;
+    text-decoration: none;
 }
+.loginBlock:hover {
 
+}

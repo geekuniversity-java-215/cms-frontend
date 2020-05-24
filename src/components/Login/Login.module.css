@@ -1,0 +1,43 @@
+.loginWrapper{
+    padding-right: 200px;
+    margin-top: 200px;
+    margin-left: 225px;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.input{
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+    border-color: transparent;
+    opacity: 80%;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 5px;
+    background-color: #dadada;
+    font-size: 20px;
+}
+.input:focus{
+    font-size: larger;
+    font-weight: bold;
+    transition: border-color .25s,background-color .25s;
+    border: 1px solid #ffee07;
+    background-color: #fff;
+    opacity: 100%;
+}
+.buttons{
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button{
+    width: 170px;
+    opacity: 90%;
+}
