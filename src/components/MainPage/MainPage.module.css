@@ -1,0 +1,26 @@
+.header {
+    grid-area: f;
+    background-color: gray;
+}
+
+.header img {
+    width: 20px;
+}
+
+.courier{
+    background-color: #805d1c;
+}
+
+.customer{
+    background-color: #00801f;
+}
+
+.image{
+    width: 60%;
+    align-content: center;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+}

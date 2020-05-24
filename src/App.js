@@ -14,8 +14,12 @@ import Preloader from "./components/common/Preloader/Preloader";
 import Order from "./components/Order/Client/Order";
 import Price from "./components/Order/Client/Price";
 import OrdersPageContainer from "./components/Order/Common/OrdersPageContainer";
+import MainPage from "./components/MainPage/MainPage";
+import FooterContainer from "./components/Footer/FooterContainer";
+import background from "./assets/images/background.jpg";
 
 class App extends React.Component {
+
     componentDidMount() {
         this.props.initializeApp();
     }
@@ -24,15 +28,19 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader/>
         }
+        const styleForImage = {
+            background: `url(${background})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+        };
         return (
-            <div className={'app-wrapper'}>
+            <div className={'app-wrapper'} style={styleForImage} >
                 <HeaderContainer/>
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Route path='/main'
-                           render={() => <div>
-                               <span>Main page</span>
-                           </div>}/>
+                           render={() =>
+                             <MainPage/>}/>
                     <Route path='/registration'
                            render={() => <Registration/>}/>
                     <Route path='/login'
@@ -48,6 +56,7 @@ class App extends React.Component {
                     <Route path='/confirm'
                            render={() => <Price/>}/>
                 </div>
+                <FooterContainer/>
             </div>)
 
     };

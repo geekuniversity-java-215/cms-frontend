@@ -1,9 +1,9 @@
-.header {
-    grid-area: h;
+.footer {
+    grid-area: f;
     background-color: gray;
 }
 
-.header img {
+.footer img {
     width: 20px;
 }
 
@@ -14,15 +14,3 @@
 .customer{
     background-color: rgba(0, 0, 0, 0.3);
 }
-
-
-
-
-.loginBlock {
-    float: right;
-
-}
-.loginBlock a {
-    color: white;
-}
-

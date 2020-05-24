@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color: #0d293e;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -12,6 +12,16 @@
 }
 
 .item a.activeLink {
-    color: wheat;
+    color: #ffee07;
+    font-weight: bold;
     text-decoration: none;
+}
+
+.item a:hover {
+    text-decoration: none;
+}
+
+.emptyUser{
+    grid-area: n;
+    background-color: #5b5e60;
 }

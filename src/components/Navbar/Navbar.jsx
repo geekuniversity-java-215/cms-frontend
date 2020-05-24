@@ -5,20 +5,30 @@ import {connect} from "react-redux";
 
 const Navbar = (props) => {
     if (!props.isAuth) {
-        return <nav className={s.nav}/>
+        return <nav className={s.emptyUser}>
+        </nav>
     } else {
         if (props.role === 'Client') {
             return <nav className={s.nav}>
-                <NavLink to="/order/new" activeClassName={s.activeLink}>Разместить заказ</NavLink>
-                <div/>
-                <NavLink to="/order/all" activeClassName={s.activeLink}>Текущие заказы</NavLink>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/order/new" activeClassName={s.activeLink}>Разместить заказ</NavLink>
+                </div>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/order/all" activeClassName={s.activeLink}>Текущие заказы</NavLink>
+                </div>
             </nav>
 
         } else if (props.role === 'Courier') {
             return <nav className={s.nav}>
-                <NavLink to="/order/all" activeClassName={s.activeLink}>Доступные заказы</NavLink>
-                <NavLink to="/order/active" activeClassName={s.activeLink}>Заказы в работе</NavLink>
-                <NavLink to="/order/done" activeClassName={s.activeLink}>Выполненные заказы</NavLink>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/order/all" activeClassName={s.activeLink}>Доступные заказы</NavLink>
+                </div>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/order/active" activeClassName={s.activeLink}>Заказы в работе</NavLink>
+                </div>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/order/done" activeClassName={s.activeLink}>Выполненные заказы</NavLink>
+                </div>
             </nav>
         }
     }

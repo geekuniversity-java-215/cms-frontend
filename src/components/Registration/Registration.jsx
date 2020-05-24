@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './RegistrationForm.module.css'
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
@@ -31,13 +31,6 @@ const RegistrationForm = (props) => {
                 <div>
                     <Field placeholder={"+7999999999"} name={"Phone"} component={Input} validate={[required]}/>
                 </div>
-                {/*<div>*/}
-                {/*    <Field name="Role" component="select" validate={[required]}>*/}
-                {/*        <option/>*/}
-                {/*        <option value="Client">Клиент</option>*/}
-                {/*        <option value="Courier">Курьер</option>*/}
-                {/*    </Field>*/}
-                {/*</div>*/}
                 <button>submit</button>
             </form>
         </div>)
@@ -49,13 +42,18 @@ const RegistrationReduxForm = reduxForm({
 })(RegistrationForm);
 
 const Registration = (props) => {
+    let [toLogin, setToLogin] = useState(false);
+
+
     const onSubmit = (formData) => {
         props.registration(formData.Username, formData.Password, formData.FirstName, formData.LastName, formData.Email, formData.Phone)
+            setToLogin(true);
     };
 
     if (props.isAuth) {
         return <Redirect to={"/main"}/>
     }
+    if (toLogin) return <Redirect to={"/login"}/>;
 
     return <div>
         <RegistrationReduxForm onSubmit={onSubmit}/>

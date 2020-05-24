@@ -6,7 +6,7 @@
 }
 
 .order_preview {
-    background: #0d293e;
+    background:rgba( 13, 41, 62 , 0.8);
     border: wheat 2px solid;
     border-radius: 10px;
     margin: 10px;

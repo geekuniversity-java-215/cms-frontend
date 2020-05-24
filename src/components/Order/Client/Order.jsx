@@ -7,65 +7,113 @@ import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import {order} from "../../../redux/order-reducer";
+import dims from "./../../../assets/images/dims.png"
 
 
 const maxLength = maxLengthCreator(10);
+const styleForImage = {
+    background: `url(${dims})`,
+    opacity:'90%',
+    height: '200px',
+    width: '310px',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    alignItems: 'center'
+};
 const OrderForm = (props) => {
     return (
         <div>
             <div className={s.form}>
-                <form onSubmit={props.handleSubmit}>
-                    <div>
-                        <Field placeholder={"Примерная масса, кг"} name={"Mass"} component={Input}
-                               validate={[required, maxLength]}/>
-                    </div>
-                    <div>
-                        <Field placeholder={"Длина, см"} name={"Length"} component={Input}/>
-                        <Field placeholder={"Ширина, см"} name={"Width"} component={Input}/>
-                        <Field placeholder={"Высота, см"} name={"Height"} component={Input}/>
+                <form onSubmit={props.handleSubmit} onReset={ ()=> {clearStorage();props.reset()}}>
+                    <div className={s.topBlock}>
+                        <div className={s.massDim}>
+                            {/*dims*/}
+                            <div style={styleForImage}>
+                                <div className={s.dimswrap}>
+                                    <div className={s.labelBig}>Габариты(см)</div>
+                                    <div className={s.labelLittle}>в любой последовательности</div>
+                                    <div className={s.dims}>
+                                        <Field className={s.dim} placeholder={"Длина"} name={"Length"}
+                                               component={Input}/>
+                                        <Field className={s.dim} placeholder={"Ширина"} name={"Width"}
+                                               component={Input}/>
+                                        <Field className={s.dim} placeholder={"Высота"} name={"Height"}
+                                               component={Input}/>
+                                    </div>
+                                </div>
+                            </div>
+                            {/*mass*/}
+                            <div className={s.field && s.massBlock}>
+                                <div>
+                                    <Field className={s.weight} placeholder={"0"} name={"Mass"} component={Input}/>
+                                </div>
+                                <div className={s.labelMass}>Масса(кг)</div>
+
+                            </div>
+                        </div>
+
+                        <div className={s.field}>
+                            <div>
+                                <Field className={s.comments} placeholder={"Комментарии"}
+                                       name={"Comments"}
+                                       component={Textarea}/>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
                     </div>
                     <div className={s.addresses}>
-                        <div>
-                            <Field placeholder={"Московская область"} name={"RegionA"} component={Input}/>
-                            <Field placeholder={"Город"} name={"CityA"} component={Input}/>
-                            <Field placeholder={"Улица"} name={"StreetA"} component={Input}/>
-                            <Field placeholder={"Дом"} name={"BuildingA"} component={Input}/>
-                            <Field placeholder={"Корпус"} name={"BlockA"} component={Input}/>
-                            <Field placeholder={"Квартира"} name={"FlatA"} component={Input}/>
-                            <Field placeholder={"Этаж"} name={"FloorA"} component={Input}/>
-                            <Field placeholder={"Домофон"} name={"IntercomA"} component={Input}/>
+                        <div className={s.field}>
+                            <label className={s.labelAddress}>Где забрать</label>
+                            <div className={s.address}>
+                                <Field className={s.inp} placeholder={"Московская область"} name={"RegionA"}
+                                       component={Input}/>
+                                <Field className={s.inp} placeholder={"Город"} name={"CityA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Улица"} name={"StreetA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Дом"} name={"BuildingA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Корпус"} name={"BlockA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Квартира"} name={"FlatA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Этаж"} name={"FloorA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Домофон"} name={"IntercomA"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Контактный телефон"} name={"PhoneA"}
+                                       component={Input}/>
+                            </div>
                         </div>
-                        <div>
-                            <Field placeholder={"Московская область"} name={"RegionB"} component={Input}/>
-                            <Field placeholder={"Город"} name={"CityB"} component={Input}/>
-                            <Field placeholder={"Улица"} name={"StreetB"} component={Input}/>
-                            <Field placeholder={"Дом"} name={"BuildingB"} component={Input}/>
-                            <Field placeholder={"Корпус"} name={"BlockB"} component={Input}/>
-                            <Field placeholder={"Квартира"} name={"FlatB"} component={Input}/>
-                            <Field placeholder={"Этаж"} name={"FloorB"} component={Input}/>
-                            <Field placeholder={"Домофон"} name={"IntercomB"} component={Input}/>
+                        <div className={s.field}>
+                            <label className={s.labelAddress}>Куда доставить</label>
+                            <div className={s.address}>
+                                <Field className={s.inp} placeholder={"Московская область"} name={"RegionB"}
+                                       component={Input}/>
+                                <Field className={s.inp} placeholder={"Город"} name={"CityB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Улица"} name={"StreetB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Дом"} name={"BuildingB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Корпус"} name={"BlockB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Квартира"} name={"FlatB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Этаж"} name={"FloorB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Домофон"} name={"IntercomB"} component={Input}/>
+                                <Field className={s.inp} placeholder={"Контактный телефон"} name={"PhoneB"}
+                                       component={Input}/>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <Field placeholder={"Контактный телефон"} name={"Phone"} component={Input}
-                        />
+                    <div className={s.buttons}>
+                        <Button className={s.button} variant="success" type={"submit"}>Рассчитать стоимость</Button>
+                        <Button className={s.button} variant="secondary" type={"reset"}>Очистить форму</Button>
                     </div>
-                    <div className={s.comments}>
-                        <Field placeholder={"Дополнительные комментарии"} name={"Comments"} component={Textarea}/>
-                    </div>
-
-                    <Button variant="success" type={"submit"}>Запросить предварительную стоимость</Button>
-
                 </form>
             </div>
 
-        </div>)
+        </div>
+    )
 
 }
 
+const clearStorage = () => {
+    localStorage.removeItem("params");
+};
 
 const OrderReduxForm = reduxForm({
-    form: 'order',  enableReinitialize: true
+    form: 'order', enableReinitialize: true
 })(OrderForm);
 
 const Order = (props) => {
@@ -86,9 +134,11 @@ const Order = (props) => {
             BlockA: formData.BlockA, FlatA: formData.FlatA, FloorA: formData.FloorA, IntercomA: formData.IntercomA,
             RegionB: formData.RegionB, CityB: formData.CityB, StreetB: formData.StreetB, BuildingB: formData.BuildingB,
             BlockB: formData.BlockB, FlatB: formData.FlatB, FloorB: formData.FloorB, IntercomB: formData.IntercomB,
-            Phone: formData.Phone, Comments: formData.Comments
+            PhoneA: formData.PhoneA, PhoneB: formData.PhoneB, Comments: formData.Comments
         };
-        new Promise(resolve=>{localStorage.setItem('params', JSON.stringify(params))})
+        new Promise(resolve => {
+            localStorage.setItem('params', JSON.stringify(params))
+        })
             .then(props.order(params))
             .then(setToConfirm(true));
 
