@@ -4,17 +4,19 @@ import slide1 from "../../assets/images/Slide1.png";
 import slide2 from "../../assets/images/Slide2.png";
 import slide3 from "../../assets/images/Slide3.png";
 import s from "./MainPage.module.css";
+import {ROLE_USER} from "../../redux/auth-reducer";
 
 const MainPage = (props) => {
     const [index, setIndex] = useState(0);
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-    return <div className = {!props.isAuth&&s.auth || props.isAuth&&s.notAuth}>
+    let showNavbar = props.isAuth && props.role != null && props.role[0]!==ROLE_USER[0];
+    return <div className = {(showNavbar&&s.auth) || s.notAuth}>
         <Carousel activeIndex={index} onSelect={handleSelect} >
             <Carousel.Item>
                 <img
-                    className={!props.isAuth&&s.image || props.isAuth&&s.imageNotAuth}
+                    className={showNavbar&&s.image || !showNavbar&&s.imageNotAuth}
                     src={slide1}
                     alt="First slide"
                 />
@@ -25,7 +27,7 @@ const MainPage = (props) => {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className={!props.isAuth&&s.image || props.isAuth&&s.imageNotAuth}
+                    className={showNavbar&&s.image || !showNavbar&&s.imageNotAuth}
                     src={slide2}
                     alt="Second slide"
                 />
@@ -37,7 +39,7 @@ const MainPage = (props) => {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className={!props.isAuth&&s.image || props.isAuth&&s.imageNotAuth}
+                    className={showNavbar&&s.image || !showNavbar&&s.imageNotAuth}
                     src={slide3}
                     alt="Third slide"
                 />

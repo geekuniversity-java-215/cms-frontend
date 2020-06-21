@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import appReducer from "./app-reducer";
 import orderReducer from "./order-reducer";
 import {ordersReducer} from "./orders-reducer";
+import accReducer from "./acc-reducer";
 
 
 let reducers = combineReducers({
@@ -13,6 +14,7 @@ let reducers = combineReducers({
     app: appReducer,
     order: orderReducer,
     orders: ordersReducer,
+    account: accReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunk));

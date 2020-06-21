@@ -2,6 +2,9 @@
     grid-area: h;
     background-color: rgba(0, 0, 0, 0.9);
     transition: 1s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .header img {
@@ -20,15 +23,25 @@
 }
 
 .loginBlock {
+    display: flex;
+    flex-direction: row;
     margin-top: 11px;
-    float: right;
+    margin-right: 11px;
+
     font-size: 20px;
     font-weight: bold;
 }
 .loginBlock a {
-    color: white;
     text-decoration: none;
 }
 .loginBlock:hover {
 
+}
+
+.button{
+    height: 40px;
+}
+
+.switchButton{
+    margin-right: 10px;
 }

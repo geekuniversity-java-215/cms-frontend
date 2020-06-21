@@ -1,7 +1,7 @@
 .nav {
     grid-area: n;
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     transition: 1s;

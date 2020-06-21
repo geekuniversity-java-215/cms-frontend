@@ -1,5 +1,7 @@
 import {orderAPI} from "../api/api";
 import React from "react";
+import {ordersAPI} from "../api/apiJRPC";
+import {api_wrapper} from "../api/api_wrapper";
 
 const SET_CURRENT_COSTS = 'SET_CURRENT_COSTS';
 const SET_CURRENT_PARAMETERS = 'SET_CURRENT_PARAMETERS';
@@ -31,7 +33,6 @@ const getCurrentParameters = () => {
             Comments: null
         }
     } else {
-        console.log(JSON.parse(localStorage.getItem('params')));
         return JSON.parse(localStorage.getItem('params'));
     }
 };
@@ -44,9 +45,7 @@ let initialState = {
         full: null,
         params: getCurrentParameters()
 
-
-    }
-;
+    };
 
 const orderReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -60,8 +59,6 @@ const orderReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload,
             };
-
-
         default:
             return state;
     }
@@ -73,13 +70,13 @@ export const order = (params) => (dispatch) => {
         resolve(localStorage.setItem('params', JSON.stringify(params)))}
     );
     return promise
-        .then(orderAPI.create(params)
+        // .then(ordersAPI.saveOrder(params)
+        .then(()=>api_wrapper('ordersAPI.saveOrder',{params}))
         .then(response => {
-            if (response.status === 200) {
                 let {baseCost, fragile, urgent, full} = response.data;
                 dispatch(setCurrentPrices(baseCost, fragile, urgent, full))
-            }
-        }))
+
+        })
 };
 
 

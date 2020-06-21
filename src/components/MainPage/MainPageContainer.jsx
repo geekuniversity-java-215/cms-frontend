@@ -11,6 +11,7 @@ class MainPageContainer extends React.Component {
 }
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    role: state.auth.role
 });
 
 export default connect(mapStateToProps, {logout})(MainPageContainer);

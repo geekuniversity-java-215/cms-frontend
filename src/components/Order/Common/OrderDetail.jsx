@@ -66,7 +66,7 @@ const OrderDetail = (props) => {
                 <Button variant="secondary" onClick={props.onHide}>
                     Close
                 </Button>
-                {(props.commonProps.Role === 'Courier') && <Button variant="primary" onClick={props.commonProps.onHide} clas>
+                {(props.commonProps.Role === 'Courier') && <Button variant="primary" onClick={props.commonProps.onHide}>
                     Взять заказ
                 </Button>}
 

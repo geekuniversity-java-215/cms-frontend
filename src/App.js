@@ -17,6 +17,7 @@ import OrdersPageContainer from "./components/Order/Common/OrdersPageContainer";
 import FooterContainer from "./components/Footer/FooterContainer";
 import background from "./assets/images/background.jpg";
 import MainPageContainer from "./components/MainPage/MainPageContainer";
+import PersonalAccount from "./components/PersonalAccount/PersonalAccount";
 
 class App extends React.Component {
 
@@ -38,7 +39,7 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
-                    <Route path='/main'
+                    <Route exact path='/'
                            render={() =>
                              <MainPageContainer/>}/>
                     <Route path='/registration'
@@ -55,6 +56,8 @@ class App extends React.Component {
                            render={() =><OrdersPageContainer path='/order/done'/>}/>
                     <Route path='/confirm'
                            render={() => <Price/>}/>
+                    <Route path='/account'
+                           render={() => <PersonalAccount/>}/>
                 </div>
                 <FooterContainer/>
             </div>)

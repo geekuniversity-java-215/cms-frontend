@@ -6,6 +6,7 @@ import s from "../Courier/OrdersPage.module.css"
 import OrderDetail from "./OrderDetail";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import {ROLE_CLIENT, ROLE_COURIER} from "../../../redux/auth-reducer";
 
 const OrderPreview = (props) => {
     const [show, setShow] = useState(false);
@@ -38,8 +39,8 @@ const OrderPreview = (props) => {
                 </div>
                 <div className={s.footer}>
                     <div>
-                    {(props.role==='Courier')&&<div>Расстояние: {props.commonProps.Distance} км</div>
-                    || (props.role==='Client')&&<div>Исполнитель: {props.commonProps.Courier}</div>}
+                    {(props.roles[0]===ROLE_COURIER[0])&&<div>Расстояние: {props.commonProps.Distance} км</div>
+                    || (props.roles[0]===ROLE_CLIENT[0])&&<div>Исполнитель: {props.commonProps.Courier}</div>}
                     <div>Стоимость: {props.commonProps.Cost}</div>
                     </div>
                     <div>

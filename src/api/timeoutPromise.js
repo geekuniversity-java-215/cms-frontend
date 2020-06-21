@@ -8,4 +8,4 @@ export const promiseTimeout = (ms, promise) => {
         promise,
         timeout
     ])
-}
+};

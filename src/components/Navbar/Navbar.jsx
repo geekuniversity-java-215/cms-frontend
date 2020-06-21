@@ -2,13 +2,14 @@ import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
+import {ROLE_CLIENT, ROLE_COURIER, ROLE_USER} from "../../redux/auth-reducer";
 
 const Navbar = (props) => {
-    if (!props.isAuth) {
+    if (!props.isAuth || props.roles==null || props.roles.length === 0 || props.roles[0]===ROLE_USER[0]) {
         return <nav className={s.emptyUser}>
         </nav>
     } else {
-        if (props.role === 'Client') {
+        if (props.roles[0] === ROLE_CLIENT[0]) {
             return <nav className={s.nav}>
                 <div className={`${s.item} ${s.active}`}>
                     <NavLink to="/order/new" activeClassName={s.activeLink}>Разместить заказ</NavLink>
@@ -17,8 +18,7 @@ const Navbar = (props) => {
                     <NavLink to="/order/all" activeClassName={s.activeLink}>Текущие заказы</NavLink>
                 </div>
             </nav>
-
-        } else if (props.role === 'Courier') {
+        } else if (props.roles[0] === ROLE_COURIER[0]) {
             return <nav className={s.nav}>
                 <div className={`${s.item} ${s.active}`}>
                     <NavLink to="/order/all" activeClassName={s.activeLink}>Доступные заказы</NavLink>
@@ -35,7 +35,7 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-    role: state.auth.role,
+    roles: state.auth.user.roles,
     isAuth: state.auth.isAuth
 });
 

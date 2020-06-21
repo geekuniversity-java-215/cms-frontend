@@ -1,23 +1,23 @@
 .image {
     width: 800px;
     height: 600px;
+    margin-left: 100px;
     transition: 2s;
 }
 
 .imageNotAuth {
     width: 800px;
     height: 600px;
-    margin-left: 100px;
     transition: 2s;
 }
 
 
-.auth {
+.notAuth {
     padding-right: 200px;
     transition: 1s;
 }
 
-.notAuth {
+.auth {
     transition: 1s;
 }
 

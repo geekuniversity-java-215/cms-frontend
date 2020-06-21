@@ -14,18 +14,18 @@ const instance = axios.create({
 });
 
 export const authAPI = {
-    getTokens(username, password) {
-        let basicAuth = 'Basic ' + btoa(username + ':' + password);
-        return instance.post('oauzz/token/get',{},{headers: {Authorization: basicAuth}})
+    getTokens(params) {
+        let basicAuth = 'Basic ' + btoa(params.login + ':' + params.password);
+        return instance.post('oauzz/token/get', {}, {headers: {Authorization: basicAuth}})
     },
     refreshTokens(refreshToken) {
         let auth = 'Bearer ' + refreshToken;
         return instance.post('oauzz/token/refresh', {}, {headers: {Authorization: auth}})
     },
 
-    login(login, password) {
-        return instance.post(`login`, {login, password});
-    },
+    // login(login, password) {
+    //     return instance.post(`login`, {login, password});
+    // },
     logout(api_key) {
         return instance.delete(`login`, {
             headers: {
@@ -33,8 +33,23 @@ export const authAPI = {
             }
         });
     },
-    register(firstName, lastName, email, phone, role) {
-        return instance.post(`register`, request({firstName, lastName, email, phone, role}))
+    register(params) {
+        let basicAuth = 'Basic ' + btoa('registrar' + ':' + 'registrar');
+        return instance.post(`registration/new`, {
+            username:params.username,
+            password:params.password,
+            firstName:params.firstName,
+            lastName:params.lastName,
+            email:params.email,
+            phoneNumber:params.phoneNumber
+        }, {
+            headers: {
+                Authorization: basicAuth,
+                'Content-Type': 'application/json'
+            }})
+            .then(response=> {
+              instance.get('registration/confirm?token='+response.data);
+            })
     }
 };
 
@@ -59,4 +74,11 @@ export const orderAPI = {
             isFragile, isUrgent, finalCost
         })
     }
+};
+
+export const accountAPI = {
+  takeMoney(transferAccount, loginPayPal) {
+      return instance.post('paypal', {transferAccount, loginPayPal
+      })
+  }
 };

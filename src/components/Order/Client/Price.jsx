@@ -70,7 +70,7 @@ const Price = (props) => {
 
 
             <div>
-                <Link className="btn btn-primary" to={"/main"} onClick={handleClick } id="confirm_button">Разместить заказ</Link>
+                <Link className="btn btn-primary" to={"/"} onClick={handleClick} id="confirm_button">Разместить заказ</Link>
             </div>
             <div>
             </div>

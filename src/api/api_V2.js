@@ -10,7 +10,8 @@ let request = (params) => {
 
 const instance = axios.create({
     // baseURL: "https://equipment-rest.herokuapp.com/",
-    baseURL: "http://localhost:8189/"
+    // baseURL: "http://localhost:8189/"
+    baseURL: "31.210.208.189:8090/"
 });
 
 export const authAPI = {
@@ -31,8 +32,7 @@ export const authAPI = {
             }});
     },
     register(firstName, lastName, email, phone, role) {
-        debugger
-        return instance.post(`register`, request(firstName, lastName, email, phone, role))
+        return instance.post(`/registration/new`, request(firstName, lastName, email, phone, role))
     }
 };
 

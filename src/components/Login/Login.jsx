@@ -37,7 +37,7 @@ const Login = (props) => {
         props.login(formData.login, formData.password)
     };
     if (props.isAuth) {
-        return <Redirect to={"/main"}/>
+        return <Redirect to={"/"}/>
     }
     return <div className={s.loginWrapper}>
         <LoginReduxForm onSubmit={onSubmit}/>

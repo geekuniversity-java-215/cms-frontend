@@ -10,13 +10,14 @@ import fragile_urgent from "../../../assets/images/fragile_urgent.png"
 import {connect} from "react-redux";
 import empty from "../../../assets/images/empty.png";
 import noname from "../../../assets/images/noname.png";
+import {ROLE_CLIENT, ROLE_COURIER} from "../../../redux/auth-reducer";
 
 
 const OrdersPage = (props) => {
     let state = props.ordersPage;
     let currentOrdersSet = () => {
         if ((props.path === '/order/all')) {
-            if (props.role === 'Client') return state.orders;
+            if (props.roles[0] === ROLE_CLIENT[0]) return state.orders;
             return state.availableOrders;
         } else if (props.path === '/order/active') {
             return state.activeOrders;
@@ -26,7 +27,7 @@ const OrdersPage = (props) => {
     };
 
     let image = (Status) => {
-            if (props.role === 'Courier') {
+            if (props.roles[0] === ROLE_COURIER[0]) {
                 switch (Status) {
                     case 'Хрупко':
                         return fragile;
@@ -37,7 +38,7 @@ const OrdersPage = (props) => {
                     case 'Обычная доставка':
                         return delivery;
                 }
-            } else if (props.role === 'Client') {
+            } else if (props.roles[0] === ROLE_CLIENT[0]) {
                 switch (Status) {
                     case 'Доставляется':
                         return delivery;
